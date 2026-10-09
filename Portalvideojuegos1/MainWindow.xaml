@@ -1,0 +1,110 @@
+﻿<Window x:Class="Portalvideojuegos1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Portalvideojuegos1"
+        mc:Ignorable="d"
+        Title="Portal de Videojuegos" Height="550" Width="850" Background="#FAFAFA">
+
+    <!-- GRID PRINCIPAL DE LA VENTANA (Dividido en 2 filas) -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <!-- Fila 0: Barra superior -->
+            <RowDefinition Height="*"/>
+            <!-- Fila 1: Cuerpo (Menú lateral + Contenido) -->
+        </Grid.RowDefinitions>
+
+        <!-- ========================================== -->
+        <!-- ZONA 1: BARRA SUPERIOR / MENÚ DE NAVEGACIÓN -->
+        <!-- ========================================== -->
+        <Border Grid.Row="0" Background="#2C2F33" BorderBrush="#202225" BorderThickness="0,0,0,1">
+            <Grid>
+                <!-- Enlaces centrales: Tienda, Comunidad, Soporte -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="TIENDA" Margin="15,0" Background="Transparent" Foreground="White" BorderBrush="Transparent" FontWeight="Bold" Cursor="Hand"/>
+                    <Button Content="COMUNIDAD" Margin="15,0" Background="Transparent" Foreground="#B9BBBE" BorderBrush="Transparent" FontWeight="Bold" Cursor="Hand"/>
+                    <Button Content="SOPORTE" Margin="15,0" Background="Transparent" Foreground="#B9BBBE" BorderBrush="Transparent" FontWeight="Bold" Cursor="Hand"/>
+                </StackPanel>
+
+                <!-- Enlace derecho: Mi perfil -->
+                <Button Content="👤 Mi Perfil" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Background="#7289DA" Foreground="White" Padding="8,4" BorderBrush="Transparent" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <!-- ========================================== -->
+        <!-- ZONA 2 Y 3: CUERPO PRINCIPAL (Fila 1)      -->
+        <!-- ========================================== -->
+        <Grid Grid.Row="1" Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="210"/>
+                <!-- Columna 0: Panel lateral izquierdo -->
+                <ColumnDefinition Width="*"/>
+                <!-- Columna 1: Panel central de juegos -->
+            </Grid.ColumnDefinitions>
+
+            <!-- ZONA 2: PANEL LATERAL IZQUIERDO (Menú de opciones ampliado) -->
+            <Border Grid.Column="0" Background="White" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="8" Margin="0,0,15,0" Padding="12">
+                <StackPanel VerticalAlignment="Top">
+                    <TextBlock Text="MENÚ PRINCIPAL" FontSize="11" FontWeight="Bold" Foreground="#888888" Margin="0,0,0,8"/>
+                    <Button Content="🔥 Destacados" Margin="0,4" Padding="8,6" HorizontalContentAlignment="Left" Background="#F0F2F5" BorderBrush="Transparent" FontWeight="Bold"/>
+                    <Button Content="🎮 Mis Juegos" Margin="0,4" Padding="8,6" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button Content="👥 Amigos y Chat" Margin="0,4" Padding="8,6" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button Content="⬇️ Descargas (0)" Margin="0,4" Padding="8,6" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent"/>
+
+                    <Separator Margin="0,12" Background="#E0E0E0"/>
+
+                    <TextBlock Text="CONFIGURACIÓN" FontSize="11" FontWeight="Bold" Foreground="#888888" Margin="0,0,0,8"/>
+                    <Button Content="⚙️ Ajustes" Margin="0,4" Padding="8,6" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent"/>
+                    <Button Content="🔒 Cuenta" Margin="0,4" Padding="8,6" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent"/>
+                </StackPanel>
+            </Border>
+
+            <!-- ZONA 3: PANEL CENTRAL / DE CONTENIDO (Juegos Destacados con Títulos) -->
+            <Border Grid.Column="1" Background="White" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="8" Padding="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Título de sección -->
+                    <TextBlock Grid.Row="0" Text="Juegos Destacados de la Semana" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+
+                    <!-- Contenedor de las tarjetas de juegos -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <!-- Caja de Juego 1: GTA V -->
+                        <StackPanel Margin="10" Width="120">
+                            <Border Width="120" Height="150" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="4" Background="#F0F0F0">
+                                <Image Source="pack://application:,,,/juego1.jpg" Stretch="UniformToFill"/>
+                            </Border>
+                            <TextBlock Text="Grand Theft Auto V" TextAlignment="Center" FontWeight="Bold" Margin="0,6,0,2" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="Acción / Mundo Abierto" TextAlignment="Center" FontSize="11" Foreground="#666666"/>
+                        </StackPanel>
+
+                        <!-- Caja de Juego 2: Red Dead Redemption 2 -->
+                        <StackPanel Margin="10" Width="120">
+                            <Border Width="120" Height="150" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="4" Background="#F0F0F0">
+                                <Image Source="pack://application:,,,/juego2.jpg" Stretch="Uniform" HorizontalAlignment="Center"/>
+                            </Border>
+                            <TextBlock Text="Red Dead Red. 2" TextAlignment="Center" FontWeight="Bold" Margin="0,6,0,2" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="Aventura / Western" TextAlignment="Center" FontSize="11" Foreground="#666666"/>
+                        </StackPanel>
+
+                        <!-- Caja de Juego 3: Rocket League -->
+                        <StackPanel Margin="10" Width="120">
+                            <Border Width="120" Height="150" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="4" Background="#F0F0F0">
+                                <Image Source="pack://application:,,,/juego3.jpg" Stretch="UniformToFill"/>
+                            </Border>
+                            <TextBlock Text="Rocket League" TextAlignment="Center" FontWeight="Bold" Margin="0,6,0,2" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock Text="Deportes / Acción" TextAlignment="Center" FontSize="11" Foreground="#666666"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
